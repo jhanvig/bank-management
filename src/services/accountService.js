@@ -23,19 +23,6 @@ const toFirestoreValue = (value) => {
   return { stringValue: String(value) };
 };
 
-const fromFirestoreValue = (fields) => {
-  const result = {};
-  Object.keys(fields).forEach((key) => {
-    const f = fields[key];
-    if      ('stringValue'    in f) result[key] = f.stringValue;
-    else if ('integerValue'   in f) result[key] = parseInt(f.integerValue);
-    else if ('doubleValue'    in f) result[key] = f.doubleValue;
-    else if ('booleanValue'   in f) result[key] = f.booleanValue;
-    else if ('timestampValue' in f) result[key] = f.timestampValue;
-  });
-  return result;
-};
-
 // ─── Generate a unique 12-digit account number ────────────────────────────────
 // Format: YYYYMMDD + 4 random digits — unique enough for a test environment.
 

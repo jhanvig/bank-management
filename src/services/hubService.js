@@ -11,7 +11,7 @@ import {
 } from 'firebase/firestore';
 
 import { hubDb, hubAuth }       from '../firebase/firebaseHub';
-import { privateDb, privateAuth } from '../firebase';
+import { privateDb } from '../firebase';
 
 const BANK_ID   = process.env.REACT_APP_BANK_ID   || 'jgb';
 const BANK_NAME = process.env.REACT_APP_BANK_NAME  || 'JG Bank';

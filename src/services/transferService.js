@@ -4,7 +4,7 @@
 
 import axios from 'axios';
 import {
-  doc, collection, runTransaction, setDoc,
+  doc, collection, runTransaction,
   getDocs, query, where, serverTimestamp,
 } from 'firebase/firestore';
 import { privateDb } from '../firebase';
