@@ -19,12 +19,6 @@ const projectId = process.env.REACT_APP_FIRESTORE_PROJECT_ID;
 const apiKey    = process.env.REACT_APP_FIRESTORE_API_KEY;
 const API_URL   = `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents`;
 // ─── Tiny SVG icon ─────────────────────────────────────────────────────────────
-const Ico = ({ d, size = 18, color = 'currentColor' }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
-    stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d={d} />
-  </svg>
-);
 
 const EyeIco = ({ open }) => (
   <svg width={18} height={18} viewBox="0 0 24 24" fill="none"

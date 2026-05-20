@@ -5,7 +5,7 @@ import {
   Alert, CircularProgress, InputAdornment,
   IconButton, Divider,
 } from '@mui/material';
-import { loginUser, getCurrentUser } from '../services/authService';
+import { loginUser} from '../services/authService';
 
 // ─── Inline SVG icons (no extra dep) ─────────────────────────────────────────
 const EyeIcon = ({ open }) => (

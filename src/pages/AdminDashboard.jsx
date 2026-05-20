@@ -4,7 +4,7 @@ import {
   Box, Typography, Button, Table, TableBody, TableCell,
   TableHead, TableRow, Chip, Avatar, CircularProgress,
   Alert, Tooltip, Badge, Divider, TextField, Dialog,
-  DialogTitle, DialogContent, DialogActions, IconButton,
+  DialogTitle, DialogContent, DialogActions,
   Paper,Card,CardContent,
 } from '@mui/material';
 import {
@@ -12,13 +12,12 @@ import {
   approveLoan,
   rejectLoan
 } from '../services/loanService';
-import { printTransactionInvoice, printLoanInvoice } from '../services/invoiceService';
 import { logoutUser, requireRole } from '../services/authService';
 import { getPendingCustomers, getAllCustomers, approveCustomer, holdCustomer, rejectCustomer, updateTransferLimit } from '../services/userService';
 import { getBanks, createBank, updateBank, deleteBank } from '../services/bankService';
 import { getAuditLogs } from '../services/auditService';
 import { getAllKYC, approveKYC, rejectKYC } from '../services/kycService';
-import { updateProfile, updateKYCStatus } from '../services/profileService';// FIX 3: needed to sync kycStatus on user record
+import { updateKYCStatus } from '../services/profileService';// FIX 3: needed to sync kycStatus on user record
 
 // ─── SVG icon helper ──────────────────────────────────────────────────────────
 const Ico = ({ path, size = 18, color = 'currentColor', extra = '' }) => (
