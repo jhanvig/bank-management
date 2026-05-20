@@ -40,28 +40,62 @@ export default function SignUpPage() {
 
   // ── Per-step validation ────────────────────────────────────────────────────
   const validateStep = () => {
-    setError('');
 
-    if (step === 0) {
-      if (!formData.name.trim())  return setError('Full name is required.'), false;
-      if (!formData.email.trim()) return setError('Email is required.'), false;
-      if (!/\S+@\S+\.\S+/.test(formData.email))
-                                  return setError('Enter a valid email address.'), false;
-      if (!formData.phone.trim()) return setError('Phone number is required.'), false;
-      if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formData.panNumber))
-        return setError('Enter a valid PAN number.'), false;
+  setError('');
+
+  if (step === 0) {
+
+    if (!formData.name.trim()) {
+      setError('Full name is required.');
+      return false;
     }
 
-    if (step === 1) {
-      if (!formData.password)             return setError('Password is required.'), false;
-      if (formData.password.length < 6)   return setError('Password must be at least 6 characters.'), false;
-      if (formData.password !== formData.confirmPassword)
-                                          return setError('Passwords do not match.'), false;
-      if (Number(formData.accountBalance) < 1000)
-                                          return setError('Minimum opening balance is ₹1,000.'), false;
+    if (!formData.email.trim()) {
+      setError('Email is required.');
+      return false;
     }
-    return true;
-  };
+
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setError('Enter a valid email address.');
+      return false;
+    }
+
+    if (!formData.phone.trim()) {
+      setError('Phone number is required.');
+      return false;
+    }
+
+    if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formData.panNumber)) {
+      setError('Enter a valid PAN number.');
+      return false;
+    }
+  }
+
+  if (step === 1) {
+
+    if (!formData.password) {
+      setError('Password is required.');
+      return false;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match.');
+      return false;
+    }
+
+    if (Number(formData.accountBalance) < 1000) {
+      setError('Minimum opening balance is ₹1,000.');
+      return false;
+    }
+  }
+
+  return true;
+};
 
   const handleNext = () => {
     if (validateStep()) setStep(s => s + 1);
